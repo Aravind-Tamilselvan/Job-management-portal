@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build":"npm install && npm install --prefix client && npm run build --prefix client",
+    "dev": "nodemon index.js"
   },
   "author": "Aravind.T",
   "license": "ISC",
