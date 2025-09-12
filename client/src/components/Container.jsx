@@ -28,7 +28,6 @@ const Container = () => {
         ? j.location.toLowerCase().includes(filters.location.toLowerCase())
         : true;
       
-      console.log(matchesLocation)
 
       const matchesJobType = filters.jobType
         ? j.jobType.toLowerCase() === filters.jobType.toLowerCase()
