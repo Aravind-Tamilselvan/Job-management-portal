@@ -7,7 +7,7 @@ export default defineConfig({
   server : {
     proxy: {
       "/api": {
-          target: "https://job-management-portal-tvba.onrender.com/",
+          target: "http://localhost:5000",
           changeOrigin: true,
         },
     }
