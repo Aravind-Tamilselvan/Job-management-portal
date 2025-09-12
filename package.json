@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server/index.js",
     "build":"npm install --include=dev && npm install --prefix client --include=dev && npm run build --prefix client",
-    "dev": "nodemon index.js"
+    "dev": "nodemon server/index.js"
   },
   "author": "Aravind.T",
   "license": "ISC",
