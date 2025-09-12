@@ -19,7 +19,6 @@ const Container = () => {
   const [filteredJobs, setFilteredJobs] = useState(jobs);
 
   useEffect(() => {
-    console.log('useEffect is running')
     const filtered = jobs.filter((j) => {
       const matchesTitle = filters.title
         ? j.jobTitle.toLowerCase().includes(filters.title.toLowerCase())
