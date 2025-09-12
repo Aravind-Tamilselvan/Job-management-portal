@@ -1,2 +1,2 @@
-export const USERURL = '/auth'
-export const JOBURL = '/job'
+export const USERURL = '/api/auth'
+export const JOBURL = '/api/job'
