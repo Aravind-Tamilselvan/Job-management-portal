@@ -250,6 +250,11 @@ nav ul li:hover {
   font-size: 20px;
 }
 
+.form-control:focus , .form-select:focus{
+  border: 2px solid black;
+  box-shadow: none;
+}
+
 /* for calender */
 input[type="date"]::-webkit-datetime-edit-text,
 input[type="date"]::-webkit-datetime-edit-month-field,
