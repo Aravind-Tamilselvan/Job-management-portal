@@ -79,7 +79,7 @@ nav ul li:hover {
   width: 90%;
 }
 
-.css-1xcmt9q-MuiSlider-thumb {
+.MuiSlider-thumb {
   height: 15px  !important;
   width: 15px !important;
   border-radius: 50% !important; 
@@ -87,7 +87,7 @@ nav ul li:hover {
   border: 5px solid black !important;
 }
 
-.css-13vpke-MuiSlider-root {
+.MuiSlider-root {
   color: black !important;
 }
 
