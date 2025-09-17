@@ -19,7 +19,8 @@ const jobPostSchema = mongoose.Schema({
         required: true
     },
     salaryRange: {
-        type: Number
+        min: { type: Number, required: true },
+        max: { type: Number, required: true }
     },
     applicationDeadline: {
         type: Date,
@@ -29,7 +30,7 @@ const jobPostSchema = mongoose.Schema({
         type: String,
         required: true
     }
-}, { timestamps: true } )
+}, { timestamps: true })
 
 const Job = mongoose.model('job', jobPostSchema)
 

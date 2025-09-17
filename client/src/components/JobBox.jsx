@@ -8,6 +8,12 @@ const JobBox = ({ data, isLoading }) => {
     const convertData = (job) => {
         return job.map((j) => {
             let logo;
+            let points = j.jobDescription.split(".")
+            let des = points.map((p, i) =>
+                <p className='my-0' key={i}>
+                    • {p}
+                    <br />
+                </p>);
             switch (j.companyName) {
                 case 'Amazon':
                     logo = '/amazon.png'
@@ -25,35 +31,36 @@ const JobBox = ({ data, isLoading }) => {
                     logo = '/vite.svg'
             }
 
-            let salary = Math.floor(j.salaryRange / 100000)
+            let salary = Math.floor(j.salaryRange.max / 100000)
 
             function timeAgo(date) {
                 const now = new Date();
                 const seconds = Math.floor((now - new Date(date)) / 1000);
 
                 let interval = Math.floor(seconds / 31536000); // years
-                if (interval >= 1) return interval === 1 ? "1 year ago" : `${interval} years ago`;
+                if (interval >= 1) return interval === 1 ? "1 year Ago" : `${interval} years Ago`;
 
                 interval = Math.floor(seconds / 2592000); // months
-                if (interval >= 1) return interval === 1 ? "1 month ago" : `${interval} months ago`;
+                if (interval >= 1) return interval === 1 ? "1 month Ago" : `${interval} months Ago`;
 
                 interval = Math.floor(seconds / 86400); // days
-                if (interval >= 1) return interval === 1 ? "1 day ago" : `${interval} days ago`;
+                if (interval >= 1) return interval === 1 ? "1 day Ago" : `${interval}d Ago`;
 
                 interval = Math.floor(seconds / 3600); // hours
-                if (interval >= 1) return interval === 1 ? "1 hr ago" : `${interval} hrs ago`;
+                if (interval >= 1) return interval === 1 ? "1 hr Ago" : `${interval}hr Ago`;
 
                 interval = Math.floor(seconds / 60); // minutes
-                if (interval >= 1) return interval === 1 ? "1 min ago" : `${interval} mins ago`;
+                if (interval >= 1) return interval === 1 ? "1 min Ago" : `${interval}m Ago`;
 
                 return "just now";
             }
 
             return {
                 ...j,
+                jobDescription: des,
                 companyName: logo,
                 salaryRange: salary,
-                createdAt : timeAgo(j.createdAt)
+                createdAt: timeAgo(j.createdAt)
             }
         })
     }
@@ -63,7 +70,7 @@ const JobBox = ({ data, isLoading }) => {
         <div className='job-container'>
             {isLoading ?
                 (
-                    Array.from({ length: 8 }).map((_, index) => (
+                    Array.from({ length: 4 }).map((_, index) => (
                         <Skeleton index={index} />
                     ))
                 ) :
@@ -78,24 +85,24 @@ const JobBox = ({ data, isLoading }) => {
                                         </div>
                                         <span>{job.createdAt}</span>
                                     </div>
-                                    <div className='company-info d-flex flex-column gap-2'>
+                                    <div className='company-info d-flex flex-column gap-3'>
                                         <h4 className='mb-0'>{job.jobTitle}</h4>
                                         <div className='d-flex justify-content-between'>
-                                            <div className='d-flex align-items-center gap-1'>
+                                            <div className='job-info d-flex align-items-start gap-1'>
                                                 <GoPersonAdd />
-                                                <span>1-3Yr Exp</span>
+                                                <span>1-3 yr Exp</span>
                                             </div>
-                                            <div className='d-flex align-items-center gap-1'>
+                                            <div className='job-info d-flex align-items-start gap-1'>
                                                 <LuBuilding2 />
                                                 <span>{job.location.split(',')[0]}</span>
                                             </div>
-                                            <div className='d-flex align-items-center gap-1'>
+                                            <div className='job-info d-flex align-items-start gap-1'>
                                                 <PiStack />
                                                 <span>{job.salaryRange} LPA</span>
                                             </div>
                                         </div>
                                         <div className='company-info-des'>
-                                            <p>{job.jobDescription}</p>
+                                            <>{job.jobDescription}</>
                                         </div>
                                     </div>
                                 </div>
