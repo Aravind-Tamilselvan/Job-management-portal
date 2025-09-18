@@ -58,7 +58,6 @@ const Container = () => {
         j.salaryRange.min >= filters.salary.min && j.salaryRange.max <= filters.salary.max 
         : true;
 
-      // OR condition → job matches if at least one filter matches
       return matchesTitle && matchesLocation && matchesJobType && matchesSalary;
     });
 
