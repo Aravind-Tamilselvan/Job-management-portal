@@ -10,8 +10,8 @@ const Filters = ({ filters, setFilters, maxSalary, handleChange }) => {
         }));
       };
 
-    const minValue = Math.floor(filters.salary.min/100000)
-    const maxValue = Math.floor(filters.salary.max/100000)
+    const minValue = Math.floor(filters.salary.min/10000)
+    const maxValue = Math.floor(filters.salary.max/10000)
     return (
         <div className="filter-container bg-white shadow-sm mt-5">
             <div className="d-flex align-items-center justify-content-between">
@@ -58,7 +58,7 @@ const Filters = ({ filters, setFilters, maxSalary, handleChange }) => {
                 <div className="filter-box d-flex flex-column align-items-center flex-grow-1 px-4">
                     <div className='w-100 d-flex justify-content-between'>
                         <label style={{fontWeight:'500'}}>Salary Per Month</label>
-                        <span style={{fontWeight:'500'}}>₹{minValue.toLocaleString()}LPA - ₹{maxValue.toLocaleString()}LPA</span>
+                        <span style={{fontWeight:'500'}}>₹{minValue.toLocaleString()}K - ₹{maxValue.toLocaleString()}K</span>
                     </div>
                     <div className='filter-slider'>
                         <Slider
@@ -68,6 +68,7 @@ const Filters = ({ filters, setFilters, maxSalary, handleChange }) => {
                             onChange={handleSalaryChange}
                             min={0}
                             max={maxSalary}
+                            step={1000}
                         />
                     </div>
                 </div>
