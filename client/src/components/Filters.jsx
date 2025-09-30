@@ -10,8 +10,8 @@ const Filters = ({ filters, setFilters, maxSalary, handleChange }) => {
         }));
       };
 
-    const minValue = Math.floor(filters.salary.min/10000)
-    const maxValue = Math.floor(filters.salary.max/10000)
+    const minValue = Math.floor(filters.salary.min/1000)
+    const maxValue = Math.floor(filters.salary.max/1000)
     return (
         <div className="filter-container bg-white shadow-sm mt-5">
             <div className="d-flex align-items-center justify-content-between">
@@ -68,7 +68,7 @@ const Filters = ({ filters, setFilters, maxSalary, handleChange }) => {
                             onChange={handleSalaryChange}
                             min={0}
                             max={maxSalary}
-                            step={1000}
+                            step={10000}
                         />
                     </div>
                 </div>
